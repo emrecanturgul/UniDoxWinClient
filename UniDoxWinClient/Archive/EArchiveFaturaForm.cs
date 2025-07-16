@@ -26,6 +26,8 @@ namespace UniDoxWinClient.Archive
                 OperationContext.Current.OutgoingMessageProperties[HttpRequestMessageProperty.Name] = props;
 
                 // şimdi servis çağrısı yapılabilir
+                var customerGBResponse = client.getCustomerGBList();
+               
                 var tc = client.getCustomerGBList().users.Select(x => x.vkn_tckn).First();
                 var creditCount = client.getCustomerCreditCount(tc).ToString();
 

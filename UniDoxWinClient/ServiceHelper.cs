@@ -8,7 +8,7 @@ namespace UniDoxWinClient
     public static class ServiceHelper
     {
         public static string Username { get; set; } = "admin_008678";
-        public static string Password { get; set; } = "FFb8rBCZ";
+        public static string Password { get; set; } = "FFb8rB(Z";
 
         public static void WithHeaders(Action<InvoiceWSClient> action)
         {
