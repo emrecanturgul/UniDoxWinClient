@@ -8,13 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace UniDoxWinClient.Archive
+namespace UniDoxWinClient.Methods
 {
-    public partial class EArchiveYuklemeForms : Form
+    public partial class UpdateInvoice : Form
     {
-        public EArchiveYuklemeForms()
+        public UpdateInvoice()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

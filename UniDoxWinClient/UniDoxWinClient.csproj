@@ -48,40 +48,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Archive\EArchiveFaturaForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Archive\EArchiveFaturaForm.Designer.cs">
-      <DependentUpon>EArchiveFaturaForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Archive\EArchiveYuklemeForms.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Archive\EArchiveYuklemeForms.Designer.cs">
-      <DependentUpon>EArchiveYuklemeForms.cs</DependentUpon>
-    </Compile>
     <Compile Include="Connected Services\InvoiceWS\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Menu\EArchiveMenuForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Menu\EArchiveMenuForm.Designer.cs">
-      <DependentUpon>EArchiveMenuForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Archive\EArchiveRaporForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Archive\EArchiveRaporForm.Designer.cs">
-      <DependentUpon>EArchiveRaporForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Menu\EFaturaMenuForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Menu\EFaturaMenuForm.Designer.cs">
-      <DependentUpon>EFaturaMenuForm.cs</DependentUpon>
+    <Compile Include="Connected Services\ServiceReference1\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Menu\Form1.cs">
       <SubType>Form</SubType>
@@ -95,20 +70,77 @@
     <Compile Include="Menu\MainMenuForm.Designer.cs">
       <DependentUpon>MainMenuForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Menu\SendInvoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu\SendInvoice.Designer.cs">
+      <DependentUpon>SendInvoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Methods\CreditInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Methods\CreditInfoForm.Designer.cs">
+      <DependentUpon>CreditInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Methods\outbox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Methods\outbox.Designer.cs">
+      <DependentUpon>outbox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Methods\PrefixInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Methods\PrefixInfoForm.Designer.cs">
+      <DependentUpon>PrefixInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Methods\QueryOutboxDocumentsWithReceivedDateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Methods\QueryOutboxDocumentsWithReceivedDateForm.Designer.cs">
+      <DependentUpon>QueryOutboxDocumentsWithReceivedDateForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Methods\UpdateInvoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Methods\UpdateInvoice.Designer.cs">
+      <DependentUpon>UpdateInvoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Methods\UserQueryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Methods\UserQueryForm.Designer.cs">
+      <DependentUpon>UserQueryForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceHelper.cs" />
-    <EmbeddedResource Include="Archive\EArchiveFaturaForm.resx">
-      <DependentUpon>EArchiveFaturaForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Menu\EArchiveMenuForm.resx">
-      <DependentUpon>EArchiveMenuForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Menu\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu\MainMenuForm.resx">
       <DependentUpon>MainMenuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu\SendInvoice.resx">
+      <DependentUpon>SendInvoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Methods\CreditInfoForm.resx">
+      <DependentUpon>CreditInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Methods\outbox.resx">
+      <DependentUpon>outbox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Methods\PrefixInfoForm.resx">
+      <DependentUpon>PrefixInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Methods\QueryOutboxDocumentsWithReceivedDateForm.resx">
+      <DependentUpon>QueryOutboxDocumentsWithReceivedDateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Methods\UpdateInvoice.resx">
+      <DependentUpon>UpdateInvoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Methods\UserQueryForm.resx">
+      <DependentUpon>UserQueryForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -234,6 +266,121 @@
     <None Include="Connected Services\InvoiceWS\UniDoxWinClient.InvoiceWS.XsltListResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\ServiceReference1\QueryDocumentWS.wsdl" />
+    <None Include="Connected Services\ServiceReference1\UniDoxWinClient.ServiceReference1.AttachmentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReference1\UniDoxWinClient.ServiceReference1.DocumentQueryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReference1\UniDoxWinClient.ServiceReference1.GetInboxAttachmentByUuidResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReference1\UniDoxWinClient.ServiceReference1.GetInboxAttachmentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReference1\UniDoxWinClient.ServiceReference1.GetLastInvoiceIdAndDateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReference1\UniDoxWinClient.ServiceReference1.GetNewUserGBListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReference1\UniDoxWinClient.ServiceReference1.GetNewUserPKListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReference1\UniDoxWinClient.ServiceReference1.GetPKListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReference1\UniDoxWinClient.ServiceReference1.GetUserGBListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReference1\UniDoxWinClient.ServiceReference1.GetUserPKListInfoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReference1\UniDoxWinClient.ServiceReference1.GetUserPKListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReference1\UniDoxWinClient.ServiceReference1.QueryAppResponseOfInboxDocumentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReference1\UniDoxWinClient.ServiceReference1.QueryAppResponseOfOutboxDocumentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReference1\UniDoxWinClient.ServiceReference1.QueryArchivedInboxDocumentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReference1\UniDoxWinClient.ServiceReference1.QueryArchivedOutboxDocumentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReference1\UniDoxWinClient.ServiceReference1.QueryEnvelopeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReference1\UniDoxWinClient.ServiceReference1.QueryInboxArchivedDocumentsWithDocumentDateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReference1\UniDoxWinClient.ServiceReference1.QueryInboxDocumentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReference1\UniDoxWinClient.ServiceReference1.QueryInboxDocumentsWithDocumentDateAndSearchParamsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReference1\UniDoxWinClient.ServiceReference1.QueryInboxDocumentsWithDocumentDateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReference1\UniDoxWinClient.ServiceReference1.QueryInboxDocumentsWithGUIDListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReference1\UniDoxWinClient.ServiceReference1.QueryInboxDocumentsWithReceivedDateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReference1\UniDoxWinClient.ServiceReference1.QueryInboxDocumentsWithReceivedDateWithSearchParamsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReference1\UniDoxWinClient.ServiceReference1.QueryOutboxArchivedDocumentsWithDocumentDateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReference1\UniDoxWinClient.ServiceReference1.QueryOutboxDocumentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReference1\UniDoxWinClient.ServiceReference1.QueryOutboxDocumentsWithDocumentDateAndSearchParamsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReference1\UniDoxWinClient.ServiceReference1.QueryOutboxDocumentsWithDocumentDateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReference1\UniDoxWinClient.ServiceReference1.QueryOutboxDocumentsWithReceivedDateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReference1\UniDoxWinClient.ServiceReference1.QueryOutboxDocumentsWithReceivedDateWithSearchParamsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReference1\UniDoxWinClient.ServiceReference1.QueryOutboxDocumentsWithWithGUIDListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReference1\UniDoxWinClient.ServiceReference1.QueryOutboxDocumentWithLocalIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReference1\UniDoxWinClient.ServiceReference1.QueryOutboxResponseDocumentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReference1\UniDoxWinClient.ServiceReference1.QueryUsersByTitleResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReference1\UniDoxWinClient.ServiceReference1.QueryUsersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReference1\UniDoxWinClient.ServiceReference1.SetTakenFromEntegratorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReference1\UniDoxWinClient.ServiceReference1.UserListDocument.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReference1\UniDoxWinClient.ServiceReference1.UserListInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReference1\UniDoxWinClient.ServiceReference1.UserQueryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -252,6 +399,7 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\InvoiceWS\" />
+    <WCFMetadataStorage Include="Connected Services\ServiceReference1\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\InvoiceWS\configuration91.svcinfo" />
@@ -265,6 +413,14 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Connected Services\ServiceReference1\configuration91.svcinfo" />
+    <None Include="Connected Services\ServiceReference1\configuration.svcinfo" />
+    <None Include="Connected Services\ServiceReference1\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Methods\a.xml" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
