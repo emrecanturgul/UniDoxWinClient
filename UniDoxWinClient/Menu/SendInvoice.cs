@@ -38,7 +38,7 @@ namespace UniDoxWinClient.Menu
                 return;
             }
 
-            int totalToSend = 521;
+            int totalToSend = 1000;
             int successCount = 0;
             int failCount = 0;
             StringBuilder resultLog = new StringBuilder();
@@ -118,7 +118,7 @@ namespace UniDoxWinClient.Menu
                             Application.DoEvents();
                         }
 
-                        System.Threading.Thread.Sleep(100);
+                       // System.Threading.Thread.Sleep(1);
                     }
                     catch (Exception ex)
                     {

@@ -48,6 +48,51 @@ namespace UniDoxWinClient.Methods
             statusLabel.ForeColor = Color.Black;
         }
 
+        // XML dosya yolunu bulma metodu
+        private string GetXMLFilePath()
+        {
+            try
+            {
+                // 1. Önce uygulama klasöründeki documents klasörünü kontrol et
+                string appPath = Application.StartupPath;
+                string documentsPath = Path.Combine(appPath, "documents", "a.xml");
+
+                if (File.Exists(documentsPath))
+                {
+                    return documentsPath;
+                }
+
+                // 2. Eğer documents klasörü yoksa, doğrudan uygulama klasöründe ara
+                string directPath = Path.Combine(appPath, "a.xml");
+                if (File.Exists(directPath))
+                {
+                    return directPath;
+                }
+
+                // 3. Eğer hiçbiri yoksa kullanıcıdan dosya seçmesini iste
+                using (OpenFileDialog openFileDialog = new OpenFileDialog())
+                {
+                    openFileDialog.Filter = "XML files (*.xml)|*.xml|All files (*.*)|*.*";
+                    openFileDialog.FilterIndex = 1;
+                    openFileDialog.RestoreDirectory = true;
+                    openFileDialog.Title = "a.xml dosyasını seçin";
+                    openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+
+                    if (openFileDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        return openFileDialog.FileName;
+                    }
+                }
+
+                return null;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"XML dosya yolu bulunurken hata: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             ShowLoadingStatus("Kullanıcı bilgileri sorgulanıyor...");
@@ -221,7 +266,15 @@ namespace UniDoxWinClient.Methods
             ShowLoadingStatus("Local ID ile sorgulama yapılıyor...");
             try
             {
-                string file = @"C:\Users\HP\Desktop\a.xml";
+                string file = GetXMLFilePath();
+
+                if (string.IsNullOrEmpty(file) || !File.Exists(file))
+                {
+                    MessageBox.Show("XML dosyası bulunamadı!\nLütfen uygulama klasöründeki 'documents' klasörüne 'a.xml' dosyasını koyun.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    ShowErrorStatus("XML dosyası bulunamadı");
+                    return;
+                }
+
                 string rawXml = File.ReadAllText(file);
                 var xml = XDocument.Parse(rawXml);
                 string uuidFromXml = xml.Descendants().FirstOrDefault(m => m.Name.LocalName == "UUID")?.Value;
@@ -272,12 +325,21 @@ namespace UniDoxWinClient.Methods
                 MessageBox.Show($"Hata: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
         private void button7_Click(object sender, EventArgs e)
         {
             ShowLoadingStatus("GUID listesi ile sorgulama yapılıyor...");
             try
             {
-                string file = @"C:\Users\HP\Desktop\a.xml";
+                string file = GetXMLFilePath();
+
+                if (string.IsNullOrEmpty(file) || !File.Exists(file))
+                {
+                    MessageBox.Show("XML dosyası bulunamadı!\nLütfen uygulama klasöründeki 'documents' klasörüne 'a.xml' dosyasını koyun.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    ShowErrorStatus("XML dosyası bulunamadı");
+                    return;
+                }
+
                 string rawXml = File.ReadAllText(file);
                 var xml = XDocument.Parse(rawXml);
                 string uuidFromXml = xml.Descendants().FirstOrDefault(m => m.Name.LocalName == "UUID")?.Value;
@@ -708,7 +770,12 @@ namespace UniDoxWinClient.Methods
         public InputDocument[] paramdondur()
         {
             var client = new InvoiceWSClient();
-            string file = @"C:\Users\HP\Desktop\a.xml";
+            string file = GetXMLFilePath();
+
+            if (string.IsNullOrEmpty(file) || !File.Exists(file))
+            {
+                throw new FileNotFoundException("XML dosyası bulunamadı! Lütfen uygulama klasöründeki 'documents' klasörüne 'a.xml' dosyasını koyun.");
+            }
 
             using (var scope = new OperationContextScope(client.InnerChannel))
             {
@@ -747,8 +814,22 @@ namespace UniDoxWinClient.Methods
         {
             ResetStatus();
             this.ActiveControl = button1;
+
+            // Form yüklendiğinde XML dosyası kontrolü yap
+            string xmlPath = GetXMLFilePath();
+            if (string.IsNullOrEmpty(xmlPath))
+            {
+                ShowErrorStatus("XML dosyası bulunamadı - documents/a.xml gerekli");
+                MessageBox.Show("Uyarı: 'a.xml' dosyası bulunamadı!\n\nLütfen aşağıdaki konumlardan birine 'a.xml' dosyasını koyun:\n" +
+                               $"1. {Path.Combine(Application.StartupPath, "documents", "a.xml")}\n" +
+                               $"2. {Path.Combine(Application.StartupPath, "a.xml")}\n\n" +
+                               "Dosya olmadan bazı işlemler çalışmayacaktır.",
+                               "XML Dosyası Bulunamadı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                ShowSuccessStatus($"XML dosyası bulundu: {Path.GetFileName(xmlPath)}");
+            }
         }
     }
-
-   
 }
