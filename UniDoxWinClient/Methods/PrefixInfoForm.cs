@@ -20,39 +20,43 @@ namespace UniDoxWinClient.Methods
             InitializeComponent();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnLoadPrefixes_Click(object sender, EventArgs e)
         {
-            
-            var client = new InvoiceWSClient();
-           
-
-            using (var scope = new OperationContextScope(client.InnerChannel))
+            try
             {
-                var prop = new HttpRequestMessageProperty();
-                prop.Headers["Username"] = ServiceHelper.Username;
-                prop.Headers["Password"] = ServiceHelper.Password;
-                OperationContext.Current.OutgoingMessageProperties[HttpRequestMessageProperty.Name] = prop;
+                var client = new InvoiceWSClient();
 
-                var prefixResponse = client.getPrefixList();
-
-                textBox1.Clear();
-                foreach (var item in prefixResponse.documents)
+                using (var scope = new OperationContextScope(client.InnerChannel))
                 {
-                    // Tüm alanları tek satıra yaz veya ayrı ayrı satırlara yaz
-                    string line = $"Prefix: {item.reserved1}, Aktif: {item.reserved2}, Mail Durumu: {item.emailSent}";
-                    textBox1.AppendText(line + Environment.NewLine);
+                    var prop = new HttpRequestMessageProperty();
+                    prop.Headers["Username"] = ServiceHelper.Username;
+                    prop.Headers["Password"] = ServiceHelper.Password;
+                    OperationContext.Current.OutgoingMessageProperties[HttpRequestMessageProperty.Name] = prop;
+
+                    var prefixResponse = client.getPrefixList();
+
+                    dataGridView1.Rows.Clear();
+
+                    foreach (var item in prefixResponse.documents)
+                    {
+                        string status = item.reserved2 == "1" ? "Aktif" : "Pasif";
+                        string emailStatus = item.emailSent == 1 ? "Gönderildi" : "Gönderilmedi";
+
+                        dataGridView1.Rows.Add(item.reserved1, status, emailStatus);
+                    }
                 }
             }
-        } 
-
-
-
-
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Prefix listesi yüklenirken hata oluştu: {ex.Message}",
+                               "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
         private void PrefixInfoForm_Load(object sender, EventArgs e)
         {
-            textBox1.Multiline = true;
-            textBox1.ScrollBars = ScrollBars.Vertical;
+            // Form yüklendiğinde otomatik olarak prefix listesini yükle
+            btnLoadPrefixes_Click(null, null);
         }
     }
 }

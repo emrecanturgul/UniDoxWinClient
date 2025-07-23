@@ -82,6 +82,18 @@
     <Compile Include="Methods\CreditInfoForm.Designer.cs">
       <DependentUpon>CreditInfoForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Methods\DocumentResultForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Methods\DocumentResultForm.Designer.cs">
+      <DependentUpon>DocumentResultForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Methods\inox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Methods\inox.Designer.cs">
+      <DependentUpon>inox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Methods\outbox.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,6 +138,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Methods\CreditInfoForm.resx">
       <DependentUpon>CreditInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Methods\DocumentResultForm.resx">
+      <DependentUpon>DocumentResultForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Methods\inox.resx">
+      <DependentUpon>inox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Methods\outbox.resx">
       <DependentUpon>outbox.cs</DependentUpon>
@@ -420,6 +438,9 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Content Include="a.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Methods\a.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

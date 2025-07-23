@@ -43,7 +43,7 @@ namespace UniDoxWinClient.Methods
 
                     if (response.queryState == 0)
                     {
-                        // DataGridView'i temizle
+                        
                         dataGridView1.Rows.Clear();
                         dataGridView1.Columns.Clear();
 
@@ -54,7 +54,7 @@ namespace UniDoxWinClient.Methods
                         dataGridView1.Columns.Add("ParaBirimi", "Para Birimi");
                         dataGridView1.Columns.Add("AliciUnvan", "Alıcı Unvan");
                         dataGridView1.Columns.Add("Durum", "Durum");
-
+                         
                         // Verileri ekle
                         if (response.documents != null)
                         {
